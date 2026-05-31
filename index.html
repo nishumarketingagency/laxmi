@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telegram Prediction Channel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#050816,#0d1328,#111827);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,255,255,.15),transparent 30%),
+    radial-gradient(circle at 80% 30%,rgba(0,136,255,.18),transparent 30%),
+    radial-gradient(circle at 50% 80%,rgba(255,0,255,.15),transparent 30%);
+    animation:moveBg 10s infinite alternate;
+}
+
+@keyframes moveBg{
+    from{transform:translateY(0);}
+    to{transform:translateY(-40px);}
+}
+
+/* Marquee */
+.marquee-wrap{
+    width:100%;
+    overflow:hidden;
+    background:linear-gradient(90deg,#00d4ff,#0088ff);
+    padding:14px 0;
+    box-shadow:0 0 25px rgba(0,212,255,.5);
+}
+
+.marquee{
+    display:inline-block;
+    white-space:nowrap;
+    animation:marquee 18s linear infinite;
+    font-weight:700;
+    font-size:18px;
+    color:#fff;
+}
+
+@keyframes marquee{
+    from{transform:translateX(100%);}
+    to{transform:translateX(-100%);}
+}
+
+/* Main Section */
+.container{
+    max-width:1200px;
+    margin:auto;
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.hero{
+    display:flex;
+    flex-wrap:wrap;
+    gap:50px;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Profile Card */
+.profile-box{
+    width:340px;
+    text-align:center;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:30px;
+    padding:35px;
+    box-shadow:0 0 40px rgba(0,212,255,.2);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+.profile-box img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid #00d4ff;
+    box-shadow:0 0 35px #00d4ff;
+}
+
+.profile-box h2{
+    margin-top:20px;
+    font-size:28px;
+}
+
+.profile-box p{
+    color:#d1d5db;
+    margin-top:10px;
+}
+
+/* Content */
+.content{
+    max-width:600px;
+}
+
+.content h1{
+    font-size:55px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#00d4ff,#00ffb3);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.content p{
+    color:#cbd5e1;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+/* Features */
+.features{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.feature{
+    flex:1 1 250px;
+    background:rgba(255,255,255,.05);
+    padding:14px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+    background:rgba(0,212,255,.1);
+}
+
+.feature span{
+    color:#00d4ff;
+    font-size:22px;
+    margin-right:8px;
+}
+
+/* Join Button */
+.join-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:700;
+    padding:18px 40px;
+    border-radius:60px;
+    background:linear-gradient(90deg,#00d4ff,#0088ff);
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 0 25px rgba(0,212,255,.5);
+    animation:pulse 2s infinite;
+}
+
+.join-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,.3);
+    transform:skewX(-30deg);
+    transition:.8s;
+}
+
+.join-btn:hover::before{
+    left:120%;
+}
+
+.join-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 45px rgba(0,212,255,.9);
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 10px #00d4ff;
+    }
+    50%{
+        box-shadow:0 0 40px #00d4ff;
+    }
+    100%{
+        box-shadow:0 0 10px #00d4ff;
+    }
+}
+
+/* Stats */
+.stats{
+    display:flex;
+    gap:20px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    flex:1;
+    min-width:150px;
+    text-align:center;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+}
+
+.stat h3{
+    color:#00d4ff;
+    font-size:30px;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .content h1{
+        font-size:38px;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .features{
+        justify-content:center;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="marquee-wrap">
+    <div class="marquee">
+        🚀 JOIN THE FASTEST GROWING TELEGRAM PREDICTION CHANNEL • DAILY PREMIUM SIGNALS • HIGH ACCURACY PREDICTIONS • INSTANT UPDATES • VIP ANALYSIS • LIMITED FREE ACCESS 🚀
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="hero">
+
+        <div class="profile-box">
+            <img src="profile.jpg" alt="Channel Profile">
+            <h2>Your Channel Name</h2>
+            <p>Premium Telegram Prediction Community</p>
+        </div>
+
+        <div class="content">
+
+            <h1>
+                Get <span class="gradient">Premium Predictions</span>
+                Directly on Telegram
+            </h1>
+
+            <p>
+                Join thousands of members receiving daily prediction updates,
+                expert analysis, market insights, and premium signals directly
+                on Telegram.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <span>✔</span> Daily Premium Predictions
+                </div>
+
+                <div class="feature">
+                    <span>⚡</span> Fast Entry Alerts
+                </div>
+
+                <div class="feature">
+                    <span>📈</span> Expert Analysis
+                </div>
+
+                <div class="feature">
+                    <span>🔥</span> Trusted Community
+                </div>
+
+                <div class="feature">
+                    <span>🎯</span> Consistent Performance
+                </div>
+
+                <div class="feature">
+                    <span>📱</span> Instant Telegram Updates
+                </div>
+            </div>
+
+            <a href="https://t.me/yourchannel" class="join-btn">
+                🚀 JOIN CHANNEL NOW
+            </a>
+
+            <div class="stats">
+                <div class="stat">
+                    <h3>50K+</h3>
+                    <p>Members</p>
+                </div>
+
+                <div class="stat">
+                    <h3>24/7</h3>
+                    <p>Updates</p>
+                </div>
+
+                <div class="stat">
+                    <h3>VIP</h3>
+                    <p>Signals</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
